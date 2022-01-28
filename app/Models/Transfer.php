@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Transfer extends Model
+{
+    use HasFactory;
+    public const STATUS_EXCHANGE = 'exchange';
+    public const STATUS_TRANSFER = 'transfer';
+    public const STATUS_PAID = 'paid';
+    public const STATUS_REFUND = 'refund';
+    public const STATUS_GIFT = 'gift';
+}
