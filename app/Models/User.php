@@ -69,11 +69,11 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmail, CanRe
         return 'encodedKey';
     }
 
-    protected function password(): Attribute
+    protected function setPasswordAttribute($value)
     {
-        return new Attribute(
-            set: fn($value) => Hash::make($value)
-        );
+        if($value) {
+            $this->attributes['password'] = app('hash')->needsRehash($value) ? Hash::make($value) : $value;
+        }
     }
 
     public function getJWTIdentifier()
