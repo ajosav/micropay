@@ -25,7 +25,7 @@ class FundWalletRequest extends FormRequest
     {
         $validate_data = [
             'amount' => 'required|numeric|min:0',
-            'reference' => 'nullable|array'
+            'reference' => 'nullable'
         ];
 
         if($this->routeIs('wallet.fund_wallet')){

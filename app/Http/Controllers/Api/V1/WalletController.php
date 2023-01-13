@@ -45,6 +45,12 @@ class WalletController extends Controller
         return response()->success("Transaction in progress", $transaction);
     }
 
+    public function transactions(Request $request)
+    {
+        $wallet = $request->user()->baseWallet();
+        return response()->success('Successful', ['transactions' => $wallet->transactions]);
+    }
+
     private function fund($request, $wallet)
     {
         try {
